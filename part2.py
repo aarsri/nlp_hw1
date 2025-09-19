@@ -124,8 +124,8 @@ if __name__ == '__main__':
 		for char in x:
 			idx = vocab.numberize(char)
 			state, _ = model.step(state, idx)
-		idx = vocab.numberize(x[-1])
 		for _ in range(100):
+			idx = vocab.numberize(x[-1])
 			state, sym = model.predict(state, idx)
 			x += sym # My predict() returns the denumberized symbol. Yours may work differently; change the code as needed.
 		print(''.join(x))
